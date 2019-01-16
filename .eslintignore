@@ -1,0 +1,6 @@
+__test/*
+__bak/*
+ErrorFiles/*
+doc/*
+dist/*
+node_modules/*

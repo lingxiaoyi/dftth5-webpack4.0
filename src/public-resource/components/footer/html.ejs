@@ -1,0 +1,35 @@
+<script>
+  (function () {
+    var getQueryString = function (name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return '';
+    }
+    var referrer = getQueryString('referrer');
+    if (referrer == '') {
+      referrer = document.referrer;
+    }
+
+    referrer = referrer.toLowerCase();
+    if (referrer.indexOf('m.baidu.com') < 0 && referrer.indexOf('m.sm.cn') < 0 && referrer.indexOf('m.so.com') < 0 &&
+      referrer.indexOf('m.sogou.com') < 0) {
+      return;
+    }
+    var rem1 = window.innerWidth / 7.2;
+    var html =
+      '<a href="http://t.gjmgwn.cn/down/index?qid=toutiaoindex"><img width="' +
+      window.innerWidth + '" height="' + window.innerWidth +
+      '" src="https://mini.eastday.com/toutiaoh5/img/indexdown.png"></a>';
+    //发送展示数据
+    $.ajax({
+      url: 'https://sstic.xiald.com:8084/?j=c&c=0:12:1:0:4:995:1:375:667:8jm8qKu37wHLvJqjfM/tsVitEZlieKU8&title=ZWFzdGRheUFE&url=aHR0cDovLzEyNy4wLjAuMS8=',
+      dataType: 'jsonp'
+    });
+    $('#J_content').prepend(html)
+  })()
+</script>
+<script src="<%= BUILD_FILE.dll.js %>"></script>
+
+</body>
+</html>
